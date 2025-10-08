@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Med Innova Nepal</title>
+    <!-- <link rel="stylesheet" href="extrastyle.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="container">
+        <div id="navbar">
+            <a href="#container">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div id="hometab">
+            <h1>Welcome to <span>Med Innova Nepal</span></h1>
+            <p>Your health, our priority.</p>
+            <div id="social-icons">
+                <a href="https://www.linkedin.com/in/drjimi8848/" target="_blank"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/drjimi8848.86" target="_blank"><i
+                        class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/drjimi8848.86/" target="_blank"><i
+                        class="fa-brands fa-square-instagram"></i></a>
+                <a href="https://x.com/Dr_jimi8848" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <div id="about">
+        <h2>About Us</h2>
+        <div id="about-content">
+            <div id="about-right"><img src="IMG/my-logo.png" alt=""></div>
+            <div id="about-left">
+                <p>
+                    Med Innova Nepal is designed as a common platform for medical students to advance medical research,
+                    innovation, and technology, and to share these contributions globally for the benefit of low- and
+                    middle-income countries (LMICs) and underserved communities.
+                    It fosters the exchange of knowledge and research worldwide, with the aim of bridging gaps in skills
+                    and education between developed and developing nations.
+                    The initiative also emphasizes empowering medical and surgical knowledge, practical skills,
+                    simulation-based learning, and supporting sustainable developmental goals.
+                </p>
+            </div>
+        </div>
+        
+
+
+
+
+    </div>
+    </div>
+    <div id="contact">
+        <div class="container">
+
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <a href="mailto:medinnovanepal@proton.me?subject=Hello&body=I want to get in touch"
+                        class="hehecontactme" id="emailid"><i
+                            class="fa-solid fa-envelope"></i>Medinnovanepal@proton.me</a><br>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/drjimi8848/" target="_blank"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/drjimi8848.86" target="_blank"><i
+                                class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/drjimi8848.86/" target="_blank"><i
+                                class="fa-brands fa-square-instagram"></i></a>
+                        <a href="https://x.com/Dr_jimi8848" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://github.com/meejeeio" target="_blank"><i class="fa-brands fa-github"></i></a>
+
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <form name='submit-to-google-sheet'>
+                        <input type="text" name="Name" placeholder="Enter Your Full Name" required>
+                        <input type="email" name="Email" placeholder="Enter Your Email Address" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn btn2 btn3">Submit</button>
+
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright @ Med Innova Nepal</p>
+    </div>
+
+    <!-- JS smooth-scroll fallback for older browsers -->
+    <script>
+        // feature-detect CSS smooth behavior
+        function supportsSmoothScroll() {
+            return 'scrollBehavior' in document.documentElement.style;
+        }
+
+        if (!supportsSmoothScroll()) {
+            document.addEventListener('click', function (e) {
+                var el = e.target.closest('a[href^="#"]');
+                if (!el) return;
+                var href = el.getAttribute('href');
+                if (href === '#' || href === '') return;
+                var target = document.querySelector(href);
+                if (!target) return;
+                e.preventDefault();
+                // account for fixed navbar height
+                var navbarHeight = document.querySelector('#navbar')?.offsetHeight || 64;
+                var targetY = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight + 6;
+                var startY = window.pageYOffset;
+                var distance = targetY - startY;
+                var duration = 500;
+                var startTime = null;
+                function step(time) {
+                    if (!startTime) startTime = time;
+                    var progress = Math.min((time - startTime) / duration, 1);
+                    var ease = 0.5 - Math.cos(progress * Math.PI) / 2; // easeInOut
+                    window.scrollTo(0, startY + distance * ease);
+                    if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }, false);
+        }
+    </script>
+</body>
+
+</html>

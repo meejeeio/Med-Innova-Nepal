@@ -1,0 +1,391 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    /* allow scrolling so page can reach sections like #about */
+    overflow: auto;
+    position: relative;
+}
+
+/* enable smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+@keyframes moveBg {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* animated background */
+body {
+    background: linear-gradient(270deg, #89f7fe, #66a6ff, #fbc2eb, #fad0c4);
+    background-size: 800% 800%;
+    animation: moveBg 18s ease-in-out infinite;
+}
+
+/* Animated floating circles */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: float 12s infinite linear;
+}
+
+.circle:nth-child(1) {
+    width: 120px;
+    height: 120px;
+    left: 10%;
+    top: 20%;
+    background: #fbc2eb;
+    animation-duration: 14s;
+}
+
+.circle:nth-child(2) {
+    width: 80px;
+    height: 80px;
+    left: 70%;
+    top: 60%;
+    background: #66a6ff;
+    animation-duration: 10s;
+}
+
+.circle:nth-child(3) {
+    width: 100px;
+    height: 100px;
+    left: 40%;
+    top: 80%;
+    background: #fad0c4;
+    animation-duration: 12s;
+}
+
+.circle:nth-child(4) {
+    width: 60px;
+    height: 60px;
+    left: 80%;
+    top: 30%;
+    background: #89f7fe;
+    animation-duration: 16s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translateY(-40px) scale(1.1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.4;
+    }
+}
+
+#container {
+    width: 100%;
+}
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.06));
+    backdrop-filter: blur(6px);
+    padding: 8px 0;
+}
+
+#navbar a{
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 25px;
+    transition: background 0.3s, color 0.3s;
+    font-weight: 500;
+}
+
+#navbar a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    color: #000;
+
+}
+
+#hometab{
+    width: 100%;
+   padding-top: 20%;
+   text-align: center;
+   padding-bottom: 30vh;
+}
+
+/* ensure anchored sections are not hidden behind fixed navbar */
+:target::before,
+section[id]::before,
+div[id]::before {
+    content: "";
+    display: block;
+    height: 64px; /* approximate navbar height */
+    margin-top: -64px;
+}
+
+#hometab h1{
+    font-size: 80px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#hometab h1 span{
+    color: #000;
+}
+
+#hometab p{
+    font-size: 24px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-bottom: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#social-icons{
+    margin-top: 30px;
+}
+#social-icons i {
+    text-decoration: none;
+    font-size: 40px;
+    margin-right: 15px;
+    color: #f9f7f7;
+    display: inline-block;
+    transition: transform 0.5s;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+#social-icons i:hover{
+    color: #ff004f;
+    transform: translateY(-5px);
+
+    }
+
+#abouttab{
+    height: 100vh;
+    width: 100%;
+   padding-top: 10%;
+   text-align: center;
+}
+#abouttab h1{
+    font-size: 60px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#abouttab h1 span{
+    color: #000;
+}
+#abouttab p{
+    font-size: 24px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin: 0 20%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* The HTML uses #about (not #abouttab) — add styles so About section is visible */
+#about{
+    padding: 80px 20px;
+    text-align: center;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(4px);
+    background-color: #000;
+}
+#about-content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#about h2{
+    font-size: 60px;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight:500 ;
+}
+#about p{
+    color: #fff;
+    font-size: 20px;
+    max-width: 900px;
+    margin-top: 120px;
+    line-height: 1.6;
+    text-align: justify;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-right: 20%;
+}
+#about-right{
+    width: 45%;
+    display: inline-block;
+    vertical-align: top;
+    flex-basis: 35%;
+}
+#about-right img{
+    height: max-content;
+    border-radius: 12px;
+    transition: transform 0.3s;
+
+}
+#about-right img:hover{
+    transform: scale(1.2);
+}
+
+#contact{
+    padding: 80px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.row{
+    display: flex;
+}
+#contact .container .row .contact-left,
+.contact-left{
+    flex-basis: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* align children to the left */
+    text-align: left; /* ensure text inside is left-aligned */
+    padding: 12px 16px;
+}
+.container h1{
+    font-size: 60px;
+    margin: 0 0 12px 0;
+    margin-bottom: 12px;
+}
+.contact-left p{
+    margin-top: 12px;
+}
+/* make sure links and social icons align left */
+.contact-left .social-icons,
+.contact-left #emailid,
+.contact-left .hehecontactme{
+    text-align: left;
+    display: inline-flex;
+    align-items: center;
+}
+#emailid{
+    margin-top: 30px;
+    display: inline-block;
+    color: #090909;
+    font-size: 24px;
+    text-decoration: none;
+
+
+}
+#emailid i{
+    color: #431fe2;
+}
+.social-icons{
+    margin-top: 30px;
+}
+.social-icons a{
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
+    color: #fbfbfb;
+    display: inline-block;
+    transition: transform 0.5s;
+}
+.social-icons a:hover{
+    color: #ff004f;
+    transform: translateY(-5px);
+
+    }
+.btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(135deg, #f20f0f, #bfced3);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+.btn.btn2{
+    text-decoration: none;
+}
+.btn:hover {
+      background: linear-gradient(135deg, #be0f0f, #bc163d);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+.btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+.contact-right{
+    flex-basis: 60%;
+}
+.contact-righ form{
+    width: 100%;
+}
+form input, form textarea{
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 15px 0 15px;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+}
+form .btn3{
+    padding: 14px 60px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.copyright{
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    background: #ffffff;
+    font-weight: 300;
+    margin-top: 20px;
+}
+
+
+
+@keyframes bob {
+    0%{transform: translateX(-50%) translateY(0)}
+    50%{transform: translateX(-50%) translateY(-8px)}
+    100%{transform: translateX(-50%) translateY(0)}
+}
+.scroll-down{animation: bob 1.8s infinite ease-in-out}
+
+/* responsive typography */
+@media (max-width: 800px){
+    #hometab h1{font-size: 46px}
+    #hometab p{font-size: 18px}
+    #navbar a{font-size: 18px; padding: 10px 12px}
+    #about h2{font-size: 34px}
+    #about p{font-size: 16px}
+}
+@media (max-width: 420px){
+    #hometab h1{font-size: 32px}
+    #hometab p{font-size: 16px}
+    #navbar a{font-size: 16px; padding: 8px 10px}
+    .scroll-down{bottom: 18px; padding: 10px}
+}
